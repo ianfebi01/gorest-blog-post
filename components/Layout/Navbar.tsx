@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className="w-full text-sm h-[60px] flex justify-center items-center shadow-card fixed top-0 bg-white gap-4">
       <button
         className={`cursor-pointer ${
-          pathName === '/' ? 'text-gray-900' : 'text-gray-400'
+          !pathName.includes('/user') ? 'text-gray-900' : 'text-gray-400'
         }`}
         onClick={() => handleChangePage('/')}
       >
@@ -31,7 +31,7 @@ const Navbar = () => {
       </button>
       <button
         className={`cursor-pointer ${
-          pathName === '/user' ? 'text-gray-900' : 'text-gray-400'
+          pathName.includes('/user') ? 'text-gray-900' : 'text-gray-400'
         }`}
         onClick={() => handleChangePage('/user')}
       >
