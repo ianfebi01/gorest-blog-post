@@ -16,27 +16,27 @@ const Navbar = () => {
 
   const handleChangePage = (page: string) => {
     router.push(page)
-    console.log(router)
+
     // dispatch(setPage(page))
   }
   return (
     <div className="w-full text-sm h-[60px] flex justify-center items-center shadow-card fixed top-0 bg-white gap-4">
-      <span
+      <button
         className={`cursor-pointer ${
           pathName === '/' ? 'text-gray-900' : 'text-gray-400'
         }`}
-        onClick={() => () => handleChangePage('/')}
+        onClick={() => handleChangePage('/')}
       >
         Posts
-      </span>
-      <span
+      </button>
+      <button
         className={`cursor-pointer ${
           pathName === '/user' ? 'text-gray-900' : 'text-gray-400'
         }`}
         onClick={() => handleChangePage('/user')}
       >
         User
-      </span>
+      </button>
     </div>
   )
 }

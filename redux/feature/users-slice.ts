@@ -22,7 +22,7 @@ export const users = createSlice({
       if (index != -1) {
         if (index != undefined) tmp?.splice(index, 1)
       }
-      console.log(actions.payload)
+
       return {
         users: tmp,
       }

@@ -38,7 +38,6 @@ const Users: FunctionComponent = () => {
     },
     onSuccess: () => {
       dispatch(deleteUserDatas(deleteId as number))
-      console.log('tes')
     },
   })
   const handleDelete = (id: number) => {
@@ -60,6 +59,7 @@ const Users: FunctionComponent = () => {
             <button
               className="text-blue-400 text-xs  w-[25px] h-[25px] flex justify-center items-center border border-none rounded-full hover:bg-blue-50 transition-all duration-300 ease-in-out"
               onClick={() => handleDelete(item.id)}
+              disabled={deleteUser.isLoading}
             >
               <Trash />
             </button>
