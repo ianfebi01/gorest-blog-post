@@ -1,8 +1,18 @@
 {
-  "extends": "next/core-web-vitals",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+
+  ],
   "env": {},
   "rules": {
-    "key-spacing": ["error", { "align": "colon" }]
+    // "key-spacing": ["error", { "align": "colon" }],
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "warning",
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
+
   },
   "parserOptions": {
     "ecmaFeatures": {},

@@ -1,12 +1,19 @@
-import Login from '@/components/Pages/Login'
+import { Posts } from '@/components/Posts/Posts'
+import { ReactQueryHydrate } from '@/components/ReactQueryHydrate/ReactQueryHydrate'
+import getQueryClient from '@/lib/getQueryClient'
+import { getPostsQueryFn } from '@/queryFns/postsQueryFns'
+import { dehydrate } from '@tanstack/react-query'
+import Link from 'next/link'
 
-
-export default function Home() {
+export default async function Home() {
+  const queryClient = getQueryClient()
+  await queryClient.prefetchQuery(['posts'], getPostsQueryFn)
+  const dehydratedState = dehydrate(queryClient)
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <div>
-      <Login/>
-     </div>
-    </main>
+    <>
+      <ReactQueryHydrate state={dehydratedState}>
+        <Posts />
+      </ReactQueryHydrate>
+    </>
   )
 }
